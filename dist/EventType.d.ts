@@ -1,0 +1,18 @@
+export declare enum EventType {
+    ConnectorAdded = 0,
+    EdgeAdded = 1,
+    ModelAdded = 2,
+    NodeAdded = 3,
+    ConnectorDeleted = 4,
+    EdgeDeleted = 5,
+    ModelDeleted = 6,
+    NodeDeleted = 7,
+    ConnectorPropertySet = 8,
+    EdgePropertySet = 9,
+    ModelPropertySet = 10,
+    NodePropertySet = 11,
+    ConnectorPropertyDeleted = 12,
+    EdgePropertyDeleted = 13,
+    ModelPropertyDeleted = 14,
+    NodePropertyDeleted = 15,
+}

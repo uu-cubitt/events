@@ -1,0 +1,34 @@
+{
+	"name": "cubitt-events",
+	"version": "0.5.0",
+	"description": "Module containing event definitions for the cubitt framework",
+	"main": "dist/cubitt-events.js",
+	"typings": "dist/cubitt-events",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": "uu-cubitt/events",
+	"keywords": [
+		"cubitt",
+		"cubitt-events",
+		"events"
+	],
+	"contributors": [
+		"Thomas Ipskamp <thomas.ipskamp@gmail.com>",
+		"Sander Klock <sander.klock@gmail.com>"
+	],
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/uu-cubitt/events/issues"
+	},
+	"homepage": "https://uu-cubitt.github.io/events",
+	"dependencies": {
+		"cubitt-commands": "~0.5.0",
+		"cubitt-common": "~0.5.0"
+	},
+	"devDependencies": {
+		"typescript": "^1.7.5",
+		"typings": "^0.6.2",
+		"typedoc": "^0.3.12"
+	}
+}
