@@ -7,9 +7,7 @@ Typescript CQRS event library for the Cubitt framework.
 ## About
 
 This library contains the events raised by the command handler after editing the Cubitt Graph through commands.
-The commands provide all basic graph operations, such as addition and removal of nodes, edges, models and connectors.
-For more information about the commands, please take a look [here](https://uu-cubitt.github.io/commands/).
-For more information about the command handler, please take a look [here](https://uu-cubitt.github.io/command-handler/).
+Events exist for all basic graph operations, such as addition and removal of nodes, edges, models and connectors.
 For more information about the CQRS implementation of the Cubitt framework, please take a look [here](https://uu-cubitt.github.io/).
 
 ## Installation
@@ -20,7 +18,7 @@ $ npm install cubitt-events
 
 ## Features
 
-* 16 CQRS events for a human readable event stream
+* 16 graph operation events for a human readable event stream.
 
 ## Documentation
 
