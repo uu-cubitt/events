@@ -21,7 +21,7 @@
 		"cubitt",
 		"cubitt-events",
 		"events",
-		"CQRS",
+		"CQRS"
 	],
 	"contributors": [
 		"Thomas Ipskamp <thomas.ipskamp@gmail.com>",
