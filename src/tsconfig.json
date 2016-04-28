@@ -1,45 +1,23 @@
 {
-    "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
-        "noImplicitAny": false,
-        "removeComments": true,
-        "noLib": false,
-        "preserveConstEnums": true,
-        "declaration": true,
-        "suppressImplicitAnyIndexErrors": true,
-        "outDir": "../dist/"
-    },
-    "filesGlob": [
-        "./**/*.ts",
-        "!./node_modules/**/*.ts"
-    ],
-    "files": [
-        "./cubitt-events.ts",
-        "./events/AddedEvent.ts",
-        "./events/ConnectorAddedEvent.ts",
-        "./events/ConnectorDeletedEvent.ts",
-        "./events/ConnectorPropertyDeletedEvent.ts",
-        "./events/ConnectorPropertySetEvent.ts",
-        "./events/DeletedEvent.ts",
-        "./events/EdgeAddedEvent.ts",
-        "./events/EdgeDeletedEvent.ts",
-        "./events/EdgePropertyDeletedEvent.ts",
-        "./events/EdgePropertySetEvent.ts",
-        "./events/Event.ts",
-        "./events/ModelAddedEvent.ts",
-        "./events/ModelDeletedEvent.ts",
-        "./events/ModelPropertyDeletedEvent.ts",
-        "./events/ModelPropertySetEvent.ts",
-        "./events/NodeAddedEvent.ts",
-        "./events/NodeDeletedEvent.ts",
-        "./events/NodePropertyDeletedEvent.ts",
-        "./events/NodePropertySetEvent.ts",
-        "./events/PropertyDeletedEvent.ts",
-        "./events/PropertySetEvent.ts",
-        "./EventType.ts"
-    ],
-    "atom": {
-        "rewriteTsconfig": true
-    }
+	"version": "1.0.0",
+	"compilerOptions": {
+		"target": "es5",
+		"module": "commonjs",
+		"noImplicitAny": true,
+		"removeComments": true,
+		"noLib": false,
+		"preserveConstEnums": true,
+		"declaration": true,
+		"suppressImplicitAnyIndexErrors": true,
+		"outDir": "./../dist/",
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true,
+		"allowUnreachableCode": false,
+		"forceConsistentCasingInFileNames": true,
+		"sourceMap": true
+	},
+	"exclude": [
+		"typings/browser",
+		"typings/browser.d.ts"
+	]
 }
