@@ -8,6 +8,11 @@ import {EventType} from "./../EventType";
  */
 export class ModelAddedEvent extends AddedEvent {
 	/**
+	 * The RFC4122 v4 compliant ID of the parent of this model.
+	 */
+	public parentId: Common.Guid;
+
+	/**
 	 * @param sourceId The RFC4122 v4 compliant ID of the command that caused this event.
 	 * @param version The new current version number.
 	 * @param timestamp The timestamp for the moment this event was created in milliseconds elapsed since 1 January 1970 00:00:00 UTC.
@@ -21,7 +26,8 @@ export class ModelAddedEvent extends AddedEvent {
 		timestamp: number,
 		elementId: Common.Guid,
 		elementType: string,
-		elementProperties: Common.Dictionary<any>
+		elementProperties: Common.Dictionary<any>,
+		parentId?: Common.Guid
 	) {
 		super(
 			sourceId,
@@ -31,5 +37,8 @@ export class ModelAddedEvent extends AddedEvent {
 			elementId,
 			elementType,
 			elementProperties);
+		if (typeof(parentId) !== "undefined" && parentId !== null) {
+			this.parentId = parentId;
+		}
 	}
 }

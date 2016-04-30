@@ -20,3 +20,4 @@ export {ConnectorPropertyDeletedEvent} from "./events/ConnectorPropertyDeletedEv
 export {EdgePropertyDeletedEvent} from "./events/EdgePropertyDeletedEvent";
 export {ModelPropertyDeletedEvent} from "./events/ModelPropertyDeletedEvent";
 export {NodePropertyDeletedEvent} from "./events/NodePropertyDeletedEvent";
+export {EventFactory} from "./EventFactory";

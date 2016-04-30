@@ -77,19 +77,19 @@ describe("EventFactory", () => {
 		done();
 	});
 
-	/*it("should correctly parse an hierarchical AddModelCommand", (done) => {
-		let command: Commands.AddModelCommand = new Commands.AddModelCommand(
+	it("should correctly parse an hierarchical ModelAddedEvent", (done) => {
+		let event: ModelAddedEvent = new ModelAddedEvent(
 			Common.Guid.newGuid(),
-			Common.Guid.newGuid(),
-			Common.Guid.newGuid(),
+			0,
+			Date.now(),
 			Common.Guid.newGuid(),
 			"TEST_MODEL",
 			{},
 			Common.Guid.newGuid()
 		);
-		expect(function() { Commands.CommandFactory.parse(JSON.parse(command.toJson())) }).to.not.throw(Error);
+		expect(function() { EventFactory.parse(JSON.parse(event.toJson())) }).to.not.throw(Error);
 		done();
-	});*/
+	});
 
 	it("should correctly parse an NodeAddedEvent", (done) => {
 		let event: NodeAddedEvent = new NodeAddedEvent(

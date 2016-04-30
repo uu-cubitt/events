@@ -240,6 +240,9 @@ export class EventFactory {
 	protected static parseModelAddedEvent(jsonObject: Object, keys: Common.Dictionary<ValidationType>): ModelAddedEvent {
 		keys["elementId"] = ValidationType.Guid;
 		keys["elementType"] = ValidationType.String;
+		if (typeof(jsonObject["parentId"]) !== "undefined" && jsonObject["parentId"] !== null) {
+			keys["parentId"] = ValidationType.Guid;
+		}
 		let properties: Object = EventFactory.parseProperties(jsonObject["properties"]);
 		EventFactory.validateObject(jsonObject, keys);
 		return new ModelAddedEvent(
@@ -248,7 +251,8 @@ export class EventFactory {
 			parseInt(jsonObject["timestamp"]),
 			Common.Guid.parse(jsonObject["elementId"]),
 			jsonObject["elementType"].toString(),
-			properties
+			properties,
+			Common.Guid.parse(jsonObject["parentId"])
 		);
 	}
 

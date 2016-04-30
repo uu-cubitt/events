@@ -12,3 +12,4 @@
 
 - Changed all event constructors to not require a command to allow for parsing from JSON.
 - Implemented EventFactory for parsing events from JSON.
+- Added hierarchical model support.
