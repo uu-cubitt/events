@@ -1,4 +1,3 @@
-import * as Commands from "cubitt-commands";
 import * as Common from "cubitt-common";
 
 import {AddedEvent} from "./AddedEvent";
@@ -24,16 +23,37 @@ export class EdgeAddedEvent extends AddedEvent {
 	public endConnectorId: Common.Guid;
 
 	/**
-	 * @param command The command that caused the raising of this event.
+	 * @param sourceId The RFC4122 v4 compliant ID of the command that caused this event.
 	 * @param version The new current version number.
+	 * @param timestamp The timestamp for the moment this event was created in milliseconds elapsed since 1 January 1970 00:00:00 UTC.
+	 * @param elementId The RFC4122 v4 compliant ID of the new element.
+	 * @param elementType The type of the new element.
+	 * @param elementProperties The properties of the new element.
+	 * @param modelId The RFC4122 v4 compliant ID of the model to which the new edge belongs.
+	 * @param startConnectorId The RFC4122 v4 compliant ID of the connector where the new edge starts.
+	 * @param endConnectorId The RFC4122 v4 compliant ID of the connector where the new edge ends.
 	 */
 	constructor(
-		command: Commands.AddEdgeCommand,
-		version: number
+		sourceId: Common.Guid,
+		version: number,
+		timestamp: number,
+		elementId: Common.Guid,
+		elementType: string,
+		elementProperties: Common.Dictionary<any>,
+		modelId: Common.Guid,
+		startConnectorId: Common.Guid,
+		endConnectorId: Common.Guid
 	) {
-		super(command, version, EventType.EdgeAdded);
-		this.modelId = command.modelId;
-		this.startConnectorId = command.startConnectorId;
-		this.endConnectorId = command.endConnectorId;
+		super(
+			sourceId,
+			version,
+			EventType.EdgeAdded,
+			timestamp,
+			elementId,
+			elementType,
+			elementProperties);
+		this.modelId = modelId;
+		this.startConnectorId = startConnectorId;
+		this.endConnectorId = endConnectorId;
 	}
 }

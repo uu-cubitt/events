@@ -1,4 +1,4 @@
-import * as Commands from "cubitt-commands";
+import * as Common from "cubitt-common";
 
 import {PropertySetEvent} from "./PropertySetEvent";
 import {EventType} from "./../EventType";
@@ -10,11 +10,26 @@ export class EdgePropertySetEvent extends PropertySetEvent {
 	/**
 	 * @param sourceId The RFC4122 v4 compliant ID of the command that caused this event.
 	 * @param version The new current version number.
+	 * @param timestamp The timestamp for the moment this event was created in milliseconds elapsed since 1 January 1970 00:00:00 UTC.
+	 * @param elementId The RFC4122 v4 compliant ID of the element for which the property was set.
+	 * @param propertyName The name of the property that was set.
+	 * @param propertyValue The value of the property that was set.
 	 */
 	constructor(
-		command: Commands.SetEdgePropertyCommand,
-		version: number
+		sourceId: Common.Guid,
+		version: number,
+		timestamp: number,
+		elementId: Common.Guid,
+		propertyName: string,
+		propertyValue: any
 	) {
-		super(command, version, EventType.EdgePropertySet);
+		super(
+			sourceId,
+			version,
+			EventType.EdgePropertySet,
+			timestamp,
+			elementId,
+			propertyName,
+			propertyValue);
 	}
 }

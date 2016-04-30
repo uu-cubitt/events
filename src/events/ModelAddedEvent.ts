@@ -1,4 +1,4 @@
-import * as Commands from "cubitt-commands";
+import * as Common from "cubitt-common";
 
 import {AddedEvent} from "./AddedEvent";
 import {EventType} from "./../EventType";
@@ -8,13 +8,37 @@ import {EventType} from "./../EventType";
  */
 export class ModelAddedEvent extends AddedEvent {
 	/**
-	 * @param command The command that caused the raising of this event.
+	 * The RFC4122 v4 compliant ID of the parent of this model.
+	 */
+	public parentId: Common.Guid;
+
+	/**
+	 * @param sourceId The RFC4122 v4 compliant ID of the command that caused this event.
 	 * @param version The new current version number.
+	 * @param timestamp The timestamp for the moment this event was created in milliseconds elapsed since 1 January 1970 00:00:00 UTC.
+	 * @param elementId The RFC4122 v4 compliant ID of the new element.
+	 * @param elementType The type of the new element.
+	 * @param elementProperties The properties of the new element.
 	 */
 	constructor(
-		command: Commands.AddModelCommand,
-		version: number
+		sourceId: Common.Guid,
+		version: number,
+		timestamp: number,
+		elementId: Common.Guid,
+		elementType: string,
+		elementProperties: Common.Dictionary<any>,
+		parentId?: Common.Guid
 	) {
-		super(command, version, EventType.ModelAdded);
+		super(
+			sourceId,
+			version,
+			EventType.ModelAdded,
+			timestamp,
+			elementId,
+			elementType,
+			elementProperties);
+		if (typeof(parentId) !== "undefined" && parentId !== null) {
+			this.parentId = parentId;
+		}
 	}
 }

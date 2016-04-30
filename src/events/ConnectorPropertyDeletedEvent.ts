@@ -1,4 +1,4 @@
-import * as Commands from "cubitt-commands";
+import * as Common from "cubitt-common";
 
 import {PropertyDeletedEvent} from "./PropertyDeletedEvent";
 import {EventType} from "./../EventType";
@@ -10,11 +10,23 @@ export class ConnectorPropertyDeletedEvent extends PropertyDeletedEvent {
 	/**
 	 * @param sourceId The RFC4122 v4 compliant ID of the command that caused this event.
 	 * @param version The new current version number.
+	 * @param timestamp The timestamp for the moment this event was created in milliseconds elapsed since 1 January 1970 00:00:00 UTC.
+	 * @param elementId The RFC4122 v4 compliant ID of the element of which the property was deleted.
+	 * @param propertyName The name of the property that is deleted.
 	 */
 	constructor(
-		command: Commands.DeleteConnectorPropertyCommand,
-		version: number
+		sourceId: Common.Guid,
+		version: number,
+		timestamp: number,
+		elementId: Common.Guid,
+		propertyName: string
 	) {
-		super(command, version, EventType.ConnectorPropertyDeleted);
+		super(
+			sourceId,
+			version,
+			EventType.ConnectorPropertyDeleted,
+			timestamp,
+			elementId,
+			propertyName);
 	}
 }

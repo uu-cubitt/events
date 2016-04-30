@@ -1,4 +1,4 @@
-import * as Commands from "cubitt-commands";
+import * as Common from "cubitt-common";
 
 import {DeletedEvent} from "./DeletedEvent";
 import {EventType} from "./../EventType";
@@ -8,13 +8,22 @@ import {EventType} from "./../EventType";
  */
 export class EdgeDeletedEvent extends DeletedEvent {
 	/**
-	 * @param command The command that caused the raising of this event.
+	 * @param sourceId The RFC4122 v4 compliant ID of the command that caused this event.
 	 * @param version The new current version number.
+	 * @param timestamp The timestamp for the moment this event was created in milliseconds elapsed since 1 January 1970 00:00:00 UTC.
+	 * @param elementId The RFC4122 v4 compliant ID of the deleted element.
 	 */
 	constructor(
-		command: Commands.DeleteEdgeCommand,
-		version: number
+		sourceId: Common.Guid,
+		version: number,
+		timestamp: number,
+		elementId: Common.Guid
 	) {
-		super(command, version, EventType.EdgeDeleted);
+		super(
+			sourceId,
+			version,
+			EventType.EdgeDeleted,
+			timestamp,
+			elementId);
 	}
 }
