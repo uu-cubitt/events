@@ -10,7 +10,7 @@ export class NodePropertySetEvent extends PropertySetEvent {
 	/**
 	 * @param sourceId The RFC4122 v4 compliant ID of the command that caused this event.
 	 * @param version The new current version number.
-	 * @param type The type of this event.
+	 * @param timestamp The timestamp for the moment this event was created in milliseconds elapsed since 1 January 1970 00:00:00 UTC.
 	 * @param elementId The RFC4122 v4 compliant ID of the element for which the property was set.
 	 * @param propertyName The name of the property that was set.
 	 * @param propertyValue The value of the property that was set.
@@ -18,6 +18,7 @@ export class NodePropertySetEvent extends PropertySetEvent {
 	constructor(
 		sourceId: Common.Guid,
 		version: number,
+		timestamp: number,
 		elementId: Common.Guid,
 		propertyName: string,
 		propertyValue: any
@@ -26,6 +27,7 @@ export class NodePropertySetEvent extends PropertySetEvent {
 			sourceId,
 			version,
 			EventType.NodePropertySet,
+			timestamp,
 			elementId,
 			propertyName,
 			propertyValue);
