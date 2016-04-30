@@ -1,4 +1,4 @@
-import * as Commands from "cubitt-commands";
+import * as Common from "cubitt-common";
 
 import {DeletedEvent} from "./DeletedEvent";
 import {EventType} from "./../EventType";
@@ -7,14 +7,21 @@ import {EventType} from "./../EventType";
  * An event that was raised when a model was deleted.
  */
 export class ModelDeletedEvent extends DeletedEvent {
-	/**
-	 * @param command The command that caused the raising of this event.
+/**
+	 * @param sourceId The RFC4122 v4 compliant ID of the command that caused this event.
 	 * @param version The new current version number.
+	 * @param type The type of this event.
+	 * @param elementId The RFC4122 v4 compliant ID of the deleted element.
 	 */
 	constructor(
-		command: Commands.DeleteModelCommand,
-		version: number
+		sourceId: Common.Guid,
+		version: number,
+		elementId: Common.Guid
 	) {
-		super(command, version, EventType.ModelDeleted);
+		super(
+			sourceId,
+			version,
+			EventType.ModelDeleted,
+			elementId);
 	}
 }

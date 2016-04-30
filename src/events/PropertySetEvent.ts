@@ -1,4 +1,3 @@
-import * as Commands from "cubitt-commands";
 import * as Common from "cubitt-common";
 
 import {Event} from "./Event";
@@ -27,15 +26,21 @@ export abstract class PropertySetEvent extends Event {
 	 * @param sourceId The RFC4122 v4 compliant ID of the command that caused this event.
 	 * @param version The new current version number.
 	 * @param type The type of this event.
+	 * @param elementId The RFC4122 v4 compliant ID of the element for which the property was set.
+	 * @param propertyName The name of the property that was set.
+	 * @param propertyValue The value of the property that was set.
 	 */
 	constructor(
-		command: Commands.SetPropertyCommand,
+		sourceId: Common.Guid,
 		version: number,
-		type: EventType
+		type: EventType,
+		elementId: Common.Guid,
+		propertyName: string,
+		propertyValue: any
 	) {
-		super(command, version, type);
-		this.elementId = command.elementId;
-		this.propertyName = command.propertyName;
-		this.propertyValue = command.propertyValue;
+		super(sourceId, version, type);
+		this.elementId = elementId;
+		this.propertyName = propertyName;
+		this.propertyValue = propertyValue;
 	}
 }

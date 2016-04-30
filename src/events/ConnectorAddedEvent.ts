@@ -1,4 +1,3 @@
-import * as Commands from "cubitt-commands";
 import * as Common from "cubitt-common";
 
 import {AddedEvent} from "./AddedEvent";
@@ -16,12 +15,26 @@ export class ConnectorAddedEvent extends AddedEvent {
 	/**
 	 * @param command The command that caused the raising of this event.
 	 * @param version The new current version number.
+	 * @param elementId The RFC4122 v4 compliant ID of the new element.
+	 * @param elementType The type of the new element.
+	 * @param elementProperties The properties of the new element.
+	 * @param nodeId The RFC4122 v4 compliant ID of the node to which the new connector belongs.
 	 */
 	constructor(
-		command: Commands.AddConnectorCommand,
-		version: number
+		sourceId: Common.Guid,
+		version: number,
+		elementId: Common.Guid,
+		elementType: string,
+		elementProperties: Common.Dictionary<any>,
+		nodeId: Common.Guid
 	) {
-		super(command, version, EventType.ConnectorAdded);
-		this.nodeId = command.nodeId;
+		super(
+			sourceId,
+			version,
+			EventType.ConnectorAdded,
+			elementId,
+			elementType,
+			elementProperties);
+		this.nodeId = nodeId;
 	}
 }

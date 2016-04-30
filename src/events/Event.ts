@@ -1,4 +1,3 @@
-import * as Commands from "cubitt-commands";
 import * as Common from "cubitt-common";
 
 import {EventType} from "./../EventType";
@@ -28,16 +27,16 @@ export abstract class Event {
 	public timestamp: number;
 
 	/**
-	 * @param command The the command that caused this event.
+	 * @param sourceId The RFC4122 v4 compliant ID of the command that caused this event.
 	 * @param version The new current version number.
 	 * @param type The type of this event.
 	 */
 	constructor(
-		command: Commands.Command,
+		sourceId: Common.Guid,
 		version: number,
 		type: EventType
 	) {
-		this.sourceId = command.id;
+		this.sourceId = sourceId;
 		this.version = version;
 		this.type = type;
 		this.timestamp = Date.now();

@@ -1,4 +1,4 @@
-import * as Commands from "cubitt-commands";
+import * as Common from "cubitt-common";
 
 import {AddedEvent} from "./AddedEvent";
 import {EventType} from "./../EventType";
@@ -10,11 +10,23 @@ export class ModelAddedEvent extends AddedEvent {
 	/**
 	 * @param command The command that caused the raising of this event.
 	 * @param version The new current version number.
+	 * @param elementId The RFC4122 v4 compliant ID of the new element.
+	 * @param elementType The type of the new element.
+	 * @param elementProperties The properties of the new element.
 	 */
 	constructor(
-		command: Commands.AddModelCommand,
-		version: number
+		sourceId: Common.Guid,
+		version: number,
+		elementId: Common.Guid,
+		elementType: string,
+		elementProperties: Common.Dictionary<any>
 	) {
-		super(command, version, EventType.ModelAdded);
+		super(
+			sourceId,
+			version,
+			EventType.ModelAdded,
+			elementId,
+			elementType,
+			elementProperties);
 	}
 }
