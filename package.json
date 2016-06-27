@@ -1,6 +1,6 @@
 {
 	"name": "cubitt-events",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Module containing event definitions for the cubitt framework",
 	"main": "dist/cubitt-events.js",
 	"typings": "dist/cubitt-events",
@@ -42,7 +42,7 @@
 		"istanbul": "^0.4.3",
 		"remap-istanbul": "^0.5.1",
 		"codeclimate-test-reporter": "^0.3.1",
-		"typedoc": "^0.3.12"
+		"typedoc": "^0.4.4"
 	},
 	"dependencies": {
 		"cubitt-common": "^1.0.0"

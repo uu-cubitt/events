@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.1
+
+- Updated documentation links
+- Upgraded typedoc dependency
+
 ## 0.5.0
 
 - Implemented basic CQRS event library for Cubitt.

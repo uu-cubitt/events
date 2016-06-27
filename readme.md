@@ -32,7 +32,7 @@ import * as Events from "cubitt-events";
 ## Documentation
 
 * [Code documentation](https://uu-cubitt.github.io/events/)
-* [Design documentation](https://uu-cubitt.github.io/events/design/)
+* [General documentation](https://cubitt.readme.io/docs/events)
 
 ## For developers
 
